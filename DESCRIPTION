@@ -1,0 +1,28 @@
+Package: pajam
+Title: Protein Atlas data and visualization
+Version: 0.0.0.900
+Authors@R: person(given="James M.", family="Ward",
+   email="jmw86069@gmail.com", role=c("aut", "cre"))
+Description: Protein Atlas data and visualization methods
+   of data from https://proteinatlas.org.
+biocViews:
+   Depends: R (>= 3.6.0)
+Imports: jamba,
+   jamma,
+   colorjam,
+   ComplexHeatmap,
+   matrixStats
+Suggests:
+   genejam,
+   multienrichjam
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Remotes: github::jmw86069/jamba,
+    github::jmw86069/colorjam,
+    github::jmw86069/genejam
+URL: http://github.com/jmw86069/pajam
+BugReports: http://github.com/jmw86069/pajam/issues
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.2

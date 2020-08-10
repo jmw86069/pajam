@@ -1,14 +1,32 @@
+---
+output:
+  github_document:
+    fig_width: 10
+    fig_height: 8
+    df_print: kable
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse=TRUE,
+  warning=FALSE,
+  message=FALSE,
+  comment="#>",
+  fig.path="man/figures/README-",
+  out.width="100%"
+)
+options(knitr.table.format='markdown')
+```
 
 # pajam
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
-The goal of pajam is to provide data and visualizations from Protein
-Atlas, whose data is graciously provided by <https://proteinatlas.org>.
+The goal of pajam is to provide data and visualizations from Protein Atlas,
+whose data is graciously provided by https://proteinatlas.org.
 
 ## Installation
 
@@ -21,10 +39,10 @@ remotes::install_github("jmw86069/pajam")
 
 ## Example
 
-Display protein tissue expression for a set of genes, displaying only
-`"Tissue"` sample types:
+Display protein tissue expression for a set of genes, displaying
+only `"Tissue"` sample types:
 
-``` r
+```{r pajam_example}
 library(pajam)
 
 test_genes <- c("DKK1","DKK4","CXCL12","IL6R","MET",
@@ -35,13 +53,11 @@ proteinatlas_heatmap(genes=test_genes,
    centered=TRUE);
 ```
 
-<img src="man/figures/README-pajam_example-1.png" width="100%" />
+This package includes a few useful genesets that may provide
+useful context into the genes. The following example shows
+`"Blood"` sample types, and some added annotations.
 
-This package includes a few useful genesets that may provide useful
-context into the genes. The following example shows `"Blood"` sample
-types, and some added annotations.
-
-``` r
+```{r pajam_genesets}
 # use proteinatlas_genesets_fdb11
 use_im <- c("secreted_proteins",
    "membrane_proteins",
@@ -54,11 +70,9 @@ proteinatlas_heatmap(genes=test_genes,
    gene_im=proteinatlas_im);
 ```
 
-<img src="man/figures/README-pajam_genesets-1.png" width="100%" />
-
 You can filter samples to require a certain minimum expression:
 
-``` r
+```{r pajam_filter}
 proteinatlas_heatmap(genes=test_genes,
    type=c("Tissue","Blood"),
    centered=TRUE,
@@ -66,11 +80,10 @@ proteinatlas_heatmap(genes=test_genes,
    gene_im=proteinatlas_im);
 ```
 
-<img src="man/figures/README-pajam_filter-1.png" width="100%" />
+It may be useful in finding cell line expression for a subset of
+genes:
 
-It may be useful in finding cell line expression for a subset of genes:
-
-``` r
+```{r pajam_cells}
 proteinatlas_heatmap(genes=c("ACE2", "TMPRSS2", "FOXJ1", "HOPX", "SFTPC"),
    type=c("Cell"),
    centered=TRUE,
@@ -78,5 +91,3 @@ proteinatlas_heatmap(genes=c("ACE2", "TMPRSS2", "FOXJ1", "HOPX", "SFTPC"),
    cluster_columns=TRUE,
    gene_im=proteinatlas_im);
 ```
-
-<img src="man/figures/README-pajam_cells-1.png" width="100%" />
