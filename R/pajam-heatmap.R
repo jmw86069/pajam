@@ -66,11 +66,14 @@
 #' @param gene_im `matrix` intended to be an incidence matrix, whose
 #'    values are `0` and `1`, with gene symbols as rownames, and various
 #'    columns indicating different annotations. When a rowname in the
-#'    heatmap is not found in the incidence matrix, and `fill_missing=TRUE`,
+#'    heatmap is not found in the incidence matrix,
 #'    it subtitutes `0` to fill the empty space. See examples to see how
 #'    to use the `proteinatlas_genesets_fdb11` data.
-#' @param fill_missing `logical` indicating whether to fill missing rownames
-#'    in `gene_im` with `0`.
+#' @param fill_missing `logical` indicating whether the input `genes` should
+#'    bo used as-is with no pattern matching, and by substituting `0`
+#'    for any missing entries. This argument is useful when trying to
+#'    align this heatmap with another existing `Heatmap` object, where
+#'    the rows must be exactly aligned.
 #' @param border `logical` indicating whether to draw a heatmap border.
 #' @param useCenterGroups `logical` used when `centered=TRUE`, and when
 #'    `controlSamples` are provided, will center each sample type
@@ -113,6 +116,7 @@
 #'    centered=TRUE,
 #'    gene_im=proteinatlas_im);
 #' 
+#' @import jamba
 #' 
 #' @export
 proteinatlas_heatmap <- function

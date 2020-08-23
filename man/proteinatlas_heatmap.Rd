@@ -86,12 +86,15 @@ names, provided using \code{genejam::freshenGenes()}.}
 \item{gene_im}{\code{matrix} intended to be an incidence matrix, whose
 values are \code{0} and \code{1}, with gene symbols as rownames, and various
 columns indicating different annotations. When a rowname in the
-heatmap is not found in the incidence matrix, and \code{fill_missing=TRUE},
+heatmap is not found in the incidence matrix,
 it subtitutes \code{0} to fill the empty space. See examples to see how
 to use the \code{proteinatlas_genesets_fdb11} data.}
 
-\item{fill_missing}{\code{logical} indicating whether to fill missing rownames
-in \code{gene_im} with \code{0}.}
+\item{fill_missing}{\code{logical} indicating whether the input \code{genes} should
+bo used as-is with no pattern matching, and by substituting \code{0}
+for any missing entries. This argument is useful when trying to
+align this heatmap with another existing \code{Heatmap} object, where
+the rows must be exactly aligned.}
 
 \item{border}{\code{logical} indicating whether to draw a heatmap border.}
 
@@ -165,6 +168,5 @@ proteinatlas_heatmap(genes=test_genes,
    type="Blood",
    centered=TRUE,
    gene_im=proteinatlas_im);
-
 
 }

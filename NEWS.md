@@ -1,3 +1,11 @@
+# pajam version 0.0.1.900
+
+## new functions
+
+* `launch_pajam()` launches an R-shiny app, to help navigate the
+data. The app uses really nice interactive features from the
+ComplexHeatmap package.
+
 # pajam version 0.0.0.900
 
 ## initial release
