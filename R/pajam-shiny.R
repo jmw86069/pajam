@@ -23,6 +23,11 @@ pajam_shiny_ui <- function
    all_genes <- rownames(proteinatlas_expr_fdb11);
    selected_genes <- c("DKK1","DKK4","CXCL12","IL6R","MET",
       "HK2","FTL","FTH1","STAT1","STAT3","CDKN1B");
+   seletced_genes <- c("ACTL6A", "ACTL6B", "ARID1A", 
+      "ARID1B", "ARID2", "DPF1", "DPF3", "PBRM1", "PHF10", 
+      "SMARCA2", "SMARCA4", "SMARCB1", "SMARCC1", "SMARCC2", 
+      "SMARCD1", "SMARCD2", "SMARCD3", "SMARCE1",
+      "GDF15", "DDIT4", "ZBTB16", "GATA3");
    all_sampletypes <- c("all", "Tissue", "Cell", "Blood", "Brain");
    selected_sampletypes <- c("Tissue", "Cell");
    all_annotations <- names(proteinatlas_genesets_fdb11);
