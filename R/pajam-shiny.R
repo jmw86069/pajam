@@ -24,8 +24,6 @@ pajam_shiny_ui <- function
    
    all_genes <- rownames(proteinatlas_expr_fdb11);
    if (is.null(selected_genes <- get0("selected_genes", envir=.GlobalEnv))) {
-      selected_genes <- c("DKK1","DKK4","CXCL12","IL6R","MET",
-         "HK2","FTL","FTH1","STAT1","STAT3","CDKN1B");
       selected_genes <- c("ACTL6A", "ACTL6B", "ARID1A", 
          "ARID1B", "ARID2", "DPF1", "DPF3", "PBRM1", "PHF10", 
          "SMARCA2", "SMARCA4", "SMARCB1", "SMARCC1", "SMARCC2", 
