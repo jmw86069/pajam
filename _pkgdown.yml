@@ -1,0 +1,20 @@
+template:
+  params:
+    bootswatch: cosmo
+reference:
+- title: Pajam Heatmap functions
+  desc: Functions to display a heatmap of Protein Atlas data.
+  contents:
+  - has_concept("pajam heatmap")
+- title: Pajam R-shiny functions
+  desc: Functions to create an R-shiny app.
+  contents:
+  - has_concept("pajam shiny")
+- title: Pajam Protein Atlas Data
+  desc: Data obtained from ProteinAtlas.org.
+  contents:
+  - has_concept("pajam data")
+- title: Pajam list functions
+  desc: Helper functions to manipulate list data.
+  contents:
+  - has_concept("pajam list")

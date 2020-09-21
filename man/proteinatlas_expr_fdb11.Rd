@@ -22,5 +22,9 @@ This data contains the expression profile data from
 https://proteinatlas.org for each gene/protein provided
 in version fdb11.
 }
+\seealso{
+Other pajam data: 
+\code{\link{proteinatlas_genesets_fdb11}}
+}
 \concept{pajam data}
 \keyword{datasets}

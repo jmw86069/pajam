@@ -2,10 +2,27 @@
 % Please edit documentation in R/pajam-shiny.R
 \name{pajam_shiny_server}
 \alias{pajam_shiny_server}
-\title{R-shiny UI for Protein Atlas visualization}
+\title{R-shiny Server for Protein Atlas visualization}
 \usage{
 pajam_shiny_server(input, output, session, shiny_env = new.env(), ...)
 }
-\description{
-R-shiny UI for Protein Atlas visualization
+\arguments{
+\item{input, output, session}{arguments that identify the R-shiny
+session.}
+
+\item{shiny_env}{\code{environment} used internally for \code{ComplexHeatmap}
+zoom functions.}
 }
+\description{
+R-shiny Server for Protein Atlas visualization
+}
+\details{
+This function defines the R-shiny server side, including
+data visualization and responses to changes in the UI.
+}
+\seealso{
+Other pajam shiny: 
+\code{\link{launch_pajam}()},
+\code{\link{pajam_shiny_ui}()}
+}
+\concept{pajam shiny}

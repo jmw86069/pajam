@@ -71,4 +71,6 @@
 #'    column_names_max_height=grid::unit(12, "cm"),
 #'    gene_im=proteinatlas_im);
 #' 
+#' @family pajam data
+#' 
 "proteinatlas_genesets_fdb11"

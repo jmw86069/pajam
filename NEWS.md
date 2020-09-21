@@ -1,3 +1,14 @@
+# pajam version 0.0.2.900
+
+## changes to existing functions
+
+* `pajam_shiny_ui()` fixed a simple typo in `selected_genes` that
+defines the initial starting set of genes displayed in the shiny
+app.
+* `'launch_pajam()` via `pajam_shiny_ui()` will honor the
+value of `selected_genes` if defined in the global environment
+`.GlobalEnv`, otherwise it will use the default set of genes.
+
 # pajam version 0.0.1.900
 
 ## new functions

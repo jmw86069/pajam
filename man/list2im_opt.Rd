@@ -20,3 +20,4 @@ setlist <- list(setA=LETTERS[1:10], setB=LETTERS[7:14]);
 list2im_opt(setlist);
 
 }
+\concept{pajam list}

@@ -7,6 +7,8 @@
 #' @import shinydashboard
 #' @import shinydashboardPlus
 #' @import shinyWidgets
+#' 
+#' @family pajam shiny
 #'
 #' @param ... additional arguments are ignored.
 #' 
@@ -21,13 +23,15 @@ pajam_shiny_ui <- function
    );
    
    all_genes <- rownames(proteinatlas_expr_fdb11);
-   selected_genes <- c("DKK1","DKK4","CXCL12","IL6R","MET",
-      "HK2","FTL","FTH1","STAT1","STAT3","CDKN1B");
-   seletced_genes <- c("ACTL6A", "ACTL6B", "ARID1A", 
-      "ARID1B", "ARID2", "DPF1", "DPF3", "PBRM1", "PHF10", 
-      "SMARCA2", "SMARCA4", "SMARCB1", "SMARCC1", "SMARCC2", 
-      "SMARCD1", "SMARCD2", "SMARCD3", "SMARCE1",
-      "GDF15", "DDIT4", "ZBTB16", "GATA3");
+   if (is.null(selected_genes <- get0("selected_genes", envir=.GlobalEnv))) {
+      selected_genes <- c("DKK1","DKK4","CXCL12","IL6R","MET",
+         "HK2","FTL","FTH1","STAT1","STAT3","CDKN1B");
+      selected_genes <- c("ACTL6A", "ACTL6B", "ARID1A", 
+         "ARID1B", "ARID2", "DPF1", "DPF3", "PBRM1", "PHF10", 
+         "SMARCA2", "SMARCA4", "SMARCB1", "SMARCC1", "SMARCC2", 
+         "SMARCD1", "SMARCD2", "SMARCD3", "SMARCE1",
+         "GDF15", "DDIT4", "ZBTB16", "GATA3");
+   }
    all_sampletypes <- c("all", "Tissue", "Cell", "Blood", "Brain");
    selected_sampletypes <- c("Tissue", "Cell");
    all_annotations <- names(proteinatlas_genesets_fdb11);
@@ -223,7 +227,8 @@ pajam_shiny_ui <- function
    
 }
 
-
+#' Get Pajam Shiny user guides
+#' 
 get_pajam_guides <- function
 (...)
 {
@@ -315,7 +320,19 @@ get_pajam_guides <- function
 }
 
 
-#' R-shiny UI for Protein Atlas visualization
+#' R-shiny Server for Protein Atlas visualization
+#' 
+#' R-shiny Server for Protein Atlas visualization
+#' 
+#' This function defines the R-shiny server side, including
+#' data visualization and responses to changes in the UI.
+#' 
+#' @family pajam shiny
+#' 
+#' @param input,output,session arguments that identify the R-shiny
+#'    session.
+#' @param shiny_env `environment` used internally for `ComplexHeatmap`
+#'    zoom functions.
 #' 
 #' @export
 pajam_shiny_server <- function
@@ -468,6 +485,25 @@ pajam_shiny_server <- function
 #' @import shinyWidgets
 #' @import glue
 #' @import ComplexHeatmap
+#' 
+#' @family pajam shiny
+#' 
+#' @param width `numeric` number of pixels to define the
+#'    default page size. This value is useful in allowing
+#'    sufficient width to the main heatmap, even though
+#'    the heatmap can be resized by dragging the small
+#'    triangle on the bottom-right corner of the heatmap.
+#' @param port `numeric` value indicating the server port
+#'    used for the R-shiny server. The default `8888`
+#'    allows R-shiny to run under linux-alike without
+#'    requiring root privilege.
+#' @param host `character` indicating the host IP address,
+#'    or host server name. This value also restricts
+#'    all incoming requests to match this value, except
+#'    when `host="0.0.0.0"` in which case it will accept
+#'    all incoming requests.
+#' @param options `list` of additional R-shiny server options.
+#' @param ... additional arguments are ignored.
 #' 
 #' @export
 launch_pajam <- function

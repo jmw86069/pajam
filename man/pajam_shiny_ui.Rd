@@ -12,3 +12,9 @@ pajam_shiny_ui(...)
 \description{
 R-shiny UI for Protein Atlas visualization
 }
+\seealso{
+Other pajam shiny: 
+\code{\link{launch_pajam}()},
+\code{\link{pajam_shiny_server}()}
+}
+\concept{pajam shiny}

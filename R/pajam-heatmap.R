@@ -23,6 +23,8 @@
 #' lowest tissue expression. An optional set of control samples
 #' can be provided with argument `controlSamples`.
 #' 
+#' @family pajam heatmap
+#' 
 #' @return `Heatmap` produced by `ComplexHeatmap::Heatmap()`.
 #' 
 #' @param expr `numeric` matrix containing gene rows, and
@@ -399,6 +401,8 @@ proteinatlas_heatmap <- function
 #' a `numeric` `matrix` whose rownames are entries from the
 #' `character` vectors, colnames are `names` from the `setlist`,
 #' and whose values are `0` or `1`.
+#' 
+#' @family pajam list
 #' 
 #' @examples
 #' setlist <- list(setA=LETTERS[1:10], setB=LETTERS[7:14]);

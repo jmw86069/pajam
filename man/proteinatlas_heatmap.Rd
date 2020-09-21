@@ -170,3 +170,4 @@ proteinatlas_heatmap(genes=test_genes,
    gene_im=proteinatlas_im);
 
 }
+\concept{pajam heatmap}

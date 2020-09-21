@@ -12,6 +12,34 @@ launch_pajam(
   options = list(width = width, host = host, port = port)
 )
 }
+\arguments{
+\item{...}{additional arguments are ignored.}
+
+\item{width}{\code{numeric} number of pixels to define the
+default page size. This value is useful in allowing
+sufficient width to the main heatmap, even though
+the heatmap can be resized by dragging the small
+triangle on the bottom-right corner of the heatmap.}
+
+\item{port}{\code{numeric} value indicating the server port
+used for the R-shiny server. The default \code{8888}
+allows R-shiny to run under linux-alike without
+requiring root privilege.}
+
+\item{host}{\code{character} indicating the host IP address,
+or host server name. This value also restricts
+all incoming requests to match this value, except
+when \code{host="0.0.0.0"} in which case it will accept
+all incoming requests.}
+
+\item{options}{\code{list} of additional R-shiny server options.}
+}
 \description{
 Launch pajam shiny app
 }
+\seealso{
+Other pajam shiny: 
+\code{\link{pajam_shiny_server}()},
+\code{\link{pajam_shiny_ui}()}
+}
+\concept{pajam shiny}

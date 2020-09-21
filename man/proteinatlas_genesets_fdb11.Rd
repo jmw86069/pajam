@@ -60,4 +60,9 @@ proteinatlas_heatmap(genes=test_genes,
    gene_im=proteinatlas_im);
 
 }
+\seealso{
+Other pajam data: 
+\code{\link{proteinatlas_expr_fdb11}}
+}
+\concept{pajam data}
 \keyword{datasets}
