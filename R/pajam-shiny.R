@@ -19,7 +19,7 @@ pajam_shiny_ui <- function
    ##
    # header
    header <- dashboardHeaderPlus(
-      title=tagList("pajam v0.1 Protein Atlas Shiny")
+      title=tagList("pajam v0.2 Protein Atlas Shiny")
    );
    
    all_genes <- rownames(proteinatlas_expr_fdb11);
