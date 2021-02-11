@@ -23,6 +23,7 @@ proteinatlas_heatmap(
   controlSamples = NULL,
   gene_names = FALSE,
   gene_im = NULL,
+  gene_im_colors = NULL,
   fill_missing = TRUE,
   border = TRUE,
   useCenterGroups = TRUE,
@@ -89,6 +90,12 @@ columns indicating different annotations. When a rowname in the
 heatmap is not found in the incidence matrix,
 it subtitutes \code{0} to fill the empty space. See examples to see how
 to use the \code{proteinatlas_genesets_fdb11} data.}
+
+\item{gene_im_colors}{\code{function} or \code{vector} that contains data
+to define colors for \code{gene_im}, using methods sufficient for
+\code{ComplexHeatmap::HeatmapAnnotation()}. When \code{gene_im_colors} is
+\code{NULL} a default function is used which is intended only for
+\code{c(0, 1)}.}
 
 \item{fill_missing}{\code{logical} indicating whether the input \code{genes} should
 bo used as-is with no pattern matching, and by substituting \code{0}

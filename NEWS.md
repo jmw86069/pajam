@@ -1,3 +1,13 @@
+# pajam version 0.0.3.900
+
+## changes to existing functions
+
+* `proteinatlas_heatmap()` new argument `gene_im_colors`
+for custom color ranges. Also `gene_im` data is expected
+to have values `c(-1, 0, 1)` instead of just `c(0, 1)`
+previously. Also the `gene_im` color legend is displayed
+by default.
+
 # pajam version 0.0.2.900
 
 ## changes to existing functions

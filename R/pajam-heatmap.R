@@ -71,6 +71,11 @@
 #'    heatmap is not found in the incidence matrix,
 #'    it subtitutes `0` to fill the empty space. See examples to see how
 #'    to use the `proteinatlas_genesets_fdb11` data.
+#' @param gene_im_colors `function` or `vector` that contains data
+#'    to define colors for `gene_im`, using methods sufficient for
+#'    `ComplexHeatmap::HeatmapAnnotation()`. When `gene_im_colors` is
+#'    `NULL` a default function is used which is intended only for
+#'    `c(0, 1)`.
 #' @param fill_missing `logical` indicating whether the input `genes` should
 #'    bo used as-is with no pattern matching, and by substituting `0`
 #'    for any missing entries. This argument is useful when trying to
@@ -140,6 +145,7 @@ proteinatlas_heatmap <- function
    controlSamples=NULL,
    gene_names=FALSE,
    gene_im=NULL,
+   gene_im_colors=NULL,
    fill_missing=TRUE,
    border=TRUE,
    useCenterGroups=TRUE,
@@ -308,16 +314,29 @@ proteinatlas_heatmap <- function
             }));
          gene_im <- rbind(gene_im, gene_im_new);
       }
+      if (length(gene_im_colors) == 0) {
+         gene_im_at <- jamba::mixedSort(keepNegative=TRUE,
+            unique(as.vector(unlist(gene_im))));
+         if (length(gene_im_at) > 5) {
+            gene_im_at <- NULL;#pretty(range(gene_im_at, na.rm=TRUE));
+         }
+         gene_im_colors <- circlize::colorRamp2(
+            breaks=c(-1, 0, 1),
+            colors=c("dodgerblue3", "white", "red3"))
+      } else {
+         gene_im_at <- NULL;
+      }
       left_annotation <- ComplexHeatmap::rowAnnotation(
+         name="gene_im",
          gene_im=gene_im[use_genes,,drop=FALSE],
          border=TRUE,
          annotation_name_gp=grid::gpar(fontsize=column_fontsize),
-         col=list(gene_im=circlize::colorRamp2(breaks=c(0,1), colors=c("white","red3"))),
-         show_legend=FALSE,
+         col=list(gene_im=gene_im_colors),
+         show_legend=TRUE,
          annotation_legend_param=list(
             border=TRUE,
             color_bar="discrete",
-            at=c(0, 1))
+            at=gene_im_at)
       );
    } else {
       left_annotation <- NULL;
