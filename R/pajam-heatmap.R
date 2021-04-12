@@ -25,7 +25,14 @@
 #' 
 #' @family pajam heatmap
 #' 
-#' @return `Heatmap` produced by `ComplexHeatmap::Heatmap()`.
+#' @return `Heatmap` produced by `ComplexHeatmap::Heatmap()` by default,
+#'    when `return_type="heatmap"`; when `return_type="list"` it
+#'    returns a `list` with components used in the heatmap, perhaps
+#'    most important is the actual expression data matrix after
+#'    expression centering, expression filtering, and sample
+#'    subsetting operations, as relevant. The `list` also includes
+#'    the Heatmap under element `"hm"`, so it can be plotted
+#'    using `ComplexHeatmap::draw()`.
 #' 
 #' @param expr `numeric` matrix containing gene rows, and
 #'    biological sample columns.
@@ -76,6 +83,11 @@
 #'    `ComplexHeatmap::HeatmapAnnotation()`. When `gene_im_colors` is
 #'    `NULL` a default function is used which is intended only for
 #'    `c(0, 1)`.
+#' @param left_annotation optional heatmap annotation as produced
+#'    by `ComplexHeatmap::HeatmapAnnotation()`, as an alternative to
+#'    supplying `gene_im`. Note than when `gene_im` is supplied,
+#'    it will replace `left_annotation`. This option is available
+#'    only to allow supplying a customized side annotation.
 #' @param fill_missing `logical` indicating whether the input `genes` should
 #'    bo used as-is with no pattern matching, and by substituting `0`
 #'    for any missing entries. This argument is useful when trying to
@@ -95,6 +107,14 @@
 #'    when `centered=TRUE`, passed to `jamma::centerGeneData_new()`.
 #'    The default is to use the `matrixStats::rowMins()` which returns
 #'    the minimum expression value per row.
+#' @param return_type `character` string indicating the type of return
+#'    object: `"heatmap"` returns the `Heatmap` object sufficient to
+#'    be plotted using `ComplexHeatmap::draw()`; `"list"` returns `list`
+#'    of relevant data components used to produce the heatmap, sufficient
+#'    for reviewing more details. The `list` output also includes data
+#'    actually used in the heatmap, after the expression centering,
+#'    expression filtering, and sample subsetting, as relevant.
+#'    if relevant.
 #' @param verbose `logical` indicating whether to print verbose output.
 #' @param ... additional arguments are passed to `ComplexHeatmap::Heatmap()`
 #'    for other customizations.
@@ -117,7 +137,6 @@
 #' proteinatlas_im <- list2im_opt(proteinatlas_genesets_fdb11[use_im]);
 #' test_genes <- c("DKK1","DKK4","CXCL12","IL6R","MET",
 #'    "HK2","FTL","FTH1","STAT1","STAT3","CDKN1B");
-#' rowGroupMeans <- jamba::rowGroupMeans;
 #' proteinatlas_heatmap(genes=test_genes,
 #'    type="Blood",
 #'    centered=TRUE,
@@ -139,6 +158,7 @@ proteinatlas_heatmap <- function
    cluster_columns=FALSE,
    cluster_rows=FALSE,
    column_split=NULL,
+   row_split=NULL,
    centered=FALSE,
    row_filter=0,
    column_filter=0,
@@ -146,16 +166,19 @@ proteinatlas_heatmap <- function
    gene_names=FALSE,
    gene_im=NULL,
    gene_im_colors=NULL,
+   left_annotation=NULL,
    fill_missing=TRUE,
    border=TRUE,
    useCenterGroups=TRUE,
    trim_columns=FALSE,
    rowStatsFunc=matrixStats::rowMins,
+   return_type=c("heatmap", "list"),
    verbose=FALSE,
    ...)
 {
    type <- match.arg(type,
       several.ok=TRUE);
+   return_type <- match.arg(return_type);
    
    if (length(genes) == 0) {
       use_genes <- jamba::mixedSort(rownames(expr));
@@ -224,7 +247,6 @@ proteinatlas_heatmap <- function
       } else {
          centerGroups <- NULL;
       }
-      rowGroupMeans <- jamba::rowGroupMeans;
       expr_m <- jamma::centerGeneData_new(expr_m,
          rowStatsFunc=rowStatsFunc,
          centerGroups=centerGroups,
@@ -277,6 +299,10 @@ proteinatlas_heatmap <- function
       gene_labels <- gene_labels[row_keep];
       use_genes <- use_genes[row_keep];
       expr_m <- expr_m[row_keep,,drop=FALSE];
+      # version 0.0.4.900 also subset row_split if supplied
+      if (length(row_split) > 0) {
+         row_split <- factor(row_split[row_keep]);
+      }
    }
    
    if (length(column_filter) > 0 && column_filter != 0) {
@@ -338,8 +364,6 @@ proteinatlas_heatmap <- function
             color_bar="discrete",
             at=gene_im_at)
       );
-   } else {
-      left_annotation <- NULL;
    }
    
    ## determine useful color range
@@ -400,6 +424,7 @@ proteinatlas_heatmap <- function
       cluster_columns=cluster_columns,
       cluster_column_slices=FALSE,
       column_split=column_split,
+      row_split=row_split,
       row_labels=gene_labels,
       left_annotation=left_annotation,
       heatmap_legend_param=list(
@@ -408,8 +433,23 @@ proteinatlas_heatmap <- function
          labels=label_text,
          color_bar="discrete"),
       col=colbr,
-      ...)
-   hm;
+      ...);
+   if ("heatmap" %in% return_type) {
+      return(hm);
+   }
+   ret_list <- list(
+      expr_m=expr_m,
+      hm=hm,
+      col=colbr,
+      row_split=row_split,
+      column_split=column_split,
+      column_labels=column_labels
+   );
+   if (length(gene_im) > 0) {
+      ret_list$gene_im <- gene_im[use_genes,,drop=FALSE];
+      ret_list$left_annotation <- left_annotation;
+   }
+   
 }
 
 #' List to incidence matrix

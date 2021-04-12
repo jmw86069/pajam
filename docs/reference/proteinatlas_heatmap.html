@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="proteinatlas.org expression heatmap — proteinatlas_heatmap" />
 <meta property="og:description" content="proteinatlas.org expression heatmap" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pajam</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2.900</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4.900</span>
       </span>
     </div>
 
@@ -90,7 +93,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jmw86069/pajam">
+  <a href="http://github.com/jmw86069/pajam/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -109,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>proteinatlas.org expression heatmap</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jmw86069/pajam/blob/master/R/pajam-heatmap.R'><code>R/pajam-heatmap.R</code></a></small>
+    <small class="dont-index">Source: <a href='http://github.com/jmw86069/pajam/blob/master/R/pajam-heatmap.R'><code>R/pajam-heatmap.R</code></a></small>
     <div class="hidden name"><code>proteinatlas_heatmap.Rd</code></div>
     </div>
 
@@ -117,33 +120,37 @@
     <p>proteinatlas.org expression heatmap</p>
     </div>
 
-    <pre class="usage"><span class='fu'>proteinatlas_heatmap</span>(
-  <span class='kw'>expr</span> <span class='kw'>=</span> <span class='no'>proteinatlas_expr_fdb11</span>,
-  <span class='kw'>genes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>samples</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"all"</span>, <span class='st'>"Tissue"</span>, <span class='st'>"Cell"</span>, <span class='st'>"Blood"</span>, <span class='st'>"Brain"</span>),
-  <span class='kw'>row_cex</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>column_cex</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>ramp</span> <span class='kw'>=</span> <span class='st'>"Reds"</span>,
-  <span class='kw'>lens</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>color_ceiling</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cluster_columns</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>cluster_rows</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>column_split</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>centered</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>row_filter</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>column_filter</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>controlSamples</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>gene_names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>gene_im</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>fill_missing</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>border</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>useCenterGroups</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>trim_columns</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>rowStatsFunc</span> <span class='kw'>=</span> <span class='kw pkg'>matrixStats</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/matrixStats/man/rowRanges.html'>rowMins</a></span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>proteinatlas_heatmap</span><span class='op'>(</span>
+  expr <span class='op'>=</span> <span class='va'>proteinatlas_expr_fdb11</span>,
+  genes <span class='op'>=</span> <span class='cn'>NULL</span>,
+  samples <span class='op'>=</span> <span class='cn'>NULL</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"Tissue"</span>, <span class='st'>"Cell"</span>, <span class='st'>"Blood"</span>, <span class='st'>"Brain"</span><span class='op'>)</span>,
+  row_cex <span class='op'>=</span> <span class='fl'>1</span>,
+  column_cex <span class='op'>=</span> <span class='fl'>1</span>,
+  ramp <span class='op'>=</span> <span class='st'>"Reds"</span>,
+  lens <span class='op'>=</span> <span class='fl'>0</span>,
+  color_ceiling <span class='op'>=</span> <span class='cn'>NULL</span>,
+  cluster_columns <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  cluster_rows <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  column_split <span class='op'>=</span> <span class='cn'>NULL</span>,
+  row_split <span class='op'>=</span> <span class='cn'>NULL</span>,
+  centered <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  row_filter <span class='op'>=</span> <span class='fl'>0</span>,
+  column_filter <span class='op'>=</span> <span class='fl'>0</span>,
+  controlSamples <span class='op'>=</span> <span class='cn'>NULL</span>,
+  gene_names <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  gene_im <span class='op'>=</span> <span class='cn'>NULL</span>,
+  gene_im_colors <span class='op'>=</span> <span class='cn'>NULL</span>,
+  left_annotation <span class='op'>=</span> <span class='cn'>NULL</span>,
+  fill_missing <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  border <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  useCenterGroups <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  trim_columns <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  rowStatsFunc <span class='op'>=</span> <span class='fu'>matrixStats</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/matrixStats/man/rowRanges.html'>rowMins</a></span>,
+  return_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"heatmap"</span>, <span class='st'>"list"</span><span class='op'>)</span>,
+  verbose <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -232,6 +239,22 @@ it subtitutes <code>0</code> to fill the empty space. See examples to see how
 to use the <code>proteinatlas_genesets_fdb11</code> data.</p></td>
     </tr>
     <tr>
+      <th>gene_im_colors</th>
+      <td><p><code>function</code> or <code>vector</code> that contains data
+to define colors for <code>gene_im</code>, using methods sufficient for
+<code><a href='https://rdrr.io/pkg/ComplexHeatmap/man/HeatmapAnnotation.html'>ComplexHeatmap::HeatmapAnnotation()</a></code>. When <code>gene_im_colors</code> is
+<code>NULL</code> a default function is used which is intended only for
+<code><a href='https://rdrr.io/r/base/c.html'>c(0, 1)</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>left_annotation</th>
+      <td><p>optional heatmap annotation as produced
+by <code><a href='https://rdrr.io/pkg/ComplexHeatmap/man/HeatmapAnnotation.html'>ComplexHeatmap::HeatmapAnnotation()</a></code>, as an alternative to
+supplying <code>gene_im</code>. Note than when <code>gene_im</code> is supplied,
+it will replace <code>left_annotation</code>. This option is available
+only to allow supplying a customized side annotation.</p></td>
+    </tr>
+    <tr>
       <th>fill_missing</th>
       <td><p><code>logical</code> indicating whether the input <code>genes</code> should
 bo used as-is with no pattern matching, and by substituting <code>0</code>
@@ -266,6 +289,17 @@ The default is to use the <code><a href='https://rdrr.io/pkg/matrixStats/man/row
 the minimum expression value per row.</p></td>
     </tr>
     <tr>
+      <th>return_type</th>
+      <td><p><code>character</code> string indicating the type of return
+object: <code>"heatmap"</code> returns the <code>Heatmap</code> object sufficient to
+be plotted using <code><a href='https://rdrr.io/pkg/ComplexHeatmap/man/draw-dispatch.html'>ComplexHeatmap::draw()</a></code>; <code>"list"</code> returns <code>list</code>
+of relevant data components used to produce the heatmap, sufficient
+for reviewing more details. The <code>list</code> output also includes data
+actually used in the heatmap, after the expression centering,
+expression filtering, and sample subsetting, as relevant.
+if relevant.</p></td>
+    </tr>
+    <tr>
       <th>verbose</th>
       <td><p><code>logical</code> indicating whether to print verbose output.</p></td>
     </tr>
@@ -278,7 +312,14 @@ for other customizations.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>Heatmap</code> produced by <code><a href='https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap.html'>ComplexHeatmap::Heatmap()</a></code>.</p>
+    <p><code>Heatmap</code> produced by <code><a href='https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap.html'>ComplexHeatmap::Heatmap()</a></code> by default,
+when <code>return_type="heatmap"</code>; when <code>return_type="list"</code> it
+returns a <code>list</code> with components used in the heatmap, perhaps
+most important is the actual expression data matrix after
+expression centering, expression filtering, and sample
+subsetting operations, as relevant. The <code>list</code> also includes
+the Heatmap under element <code>"hm"</code>, so it can be plotted
+using <code><a href='https://rdrr.io/pkg/ComplexHeatmap/man/draw-dispatch.html'>ComplexHeatmap::draw()</a></code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function takes proteinatlas expression data <code>expr</code>,
@@ -298,38 +339,34 @@ lowest tissue expression. An optional set of control samples
 can be provided with argument <code>controlSamples</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>test_genes</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"DKK1"</span>,<span class='st'>"DKK4"</span>,<span class='st'>"CXCL12"</span>,<span class='st'>"IL6R"</span>,<span class='st'>"MET"</span>,
-   <span class='st'>"HK2"</span>,<span class='st'>"FTL"</span>,<span class='st'>"FTH1"</span>,<span class='st'>"STAT1"</span>,<span class='st'>"STAT3"</span>,<span class='st'>"CDKN1B"</span>);
-<span class='fu'>proteinatlas_heatmap</span>(<span class='kw'>genes</span><span class='kw'>=</span><span class='no'>test_genes</span>,
-   <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"Blood"</span>,
-   <span class='kw'>centered</span><span class='kw'>=</span><span class='fl'>FALSE</span>,
-   <span class='kw'>cluster_rows</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
-   <span class='kw'>cluster_columns</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
-   <span class='kw'>row_filter</span><span class='kw'>=</span><span class='fl'>2</span>)</div><div class='img'><img src='proteinatlas_heatmap-1.png' alt='' width='700' height='433' /></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='va'>test_genes</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"DKK1"</span>,<span class='st'>"DKK4"</span>,<span class='st'>"CXCL12"</span>,<span class='st'>"IL6R"</span>,<span class='st'>"MET"</span>,
+   <span class='st'>"HK2"</span>,<span class='st'>"FTL"</span>,<span class='st'>"FTH1"</span>,<span class='st'>"STAT1"</span>,<span class='st'>"STAT3"</span>,<span class='st'>"CDKN1B"</span><span class='op'>)</span>;
+<span class='fu'>proteinatlas_heatmap</span><span class='op'>(</span>genes<span class='op'>=</span><span class='va'>test_genes</span>,
+   type<span class='op'>=</span><span class='st'>"Blood"</span>,
+   centered<span class='op'>=</span><span class='cn'>FALSE</span>,
+   cluster_rows<span class='op'>=</span><span class='cn'>TRUE</span>,
+   cluster_columns<span class='op'>=</span><span class='cn'>TRUE</span>,
+   row_filter<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
+</div><div class='img'><img src='proteinatlas_heatmap-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># use proteinatlas_genesets_fdb11</span>
-<span class='no'>use_im</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"secreted_proteins"</span>,
+<span class='va'>use_im</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"secreted_proteins"</span>,
    <span class='st'>"membrane_proteins"</span>,
    <span class='st'>"NOT_membrane_secreted"</span>,
-   <span class='st'>"TFs"</span>);
-<span class='no'>proteinatlas_im</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='list2im_opt.html'>list2im_opt</a></span>(<span class='no'>proteinatlas_genesets_fdb11</span>[<span class='no'>use_im</span>]);
-<span class='no'>test_genes</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"DKK1"</span>,<span class='st'>"DKK4"</span>,<span class='st'>"CXCL12"</span>,<span class='st'>"IL6R"</span>,<span class='st'>"MET"</span>,
-   <span class='st'>"HK2"</span>,<span class='st'>"FTL"</span>,<span class='st'>"FTH1"</span>,<span class='st'>"STAT1"</span>,<span class='st'>"STAT3"</span>,<span class='st'>"CDKN1B"</span>);
-<span class='no'>rowGroupMeans</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>jamba</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/jamba/man/rowGroupMeans.html'>rowGroupMeans</a></span>;
-<span class='fu'>proteinatlas_heatmap</span>(<span class='kw'>genes</span><span class='kw'>=</span><span class='no'>test_genes</span>,
-   <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"Blood"</span>,
-   <span class='kw'>centered</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
-   <span class='kw'>gene_im</span><span class='kw'>=</span><span class='no'>proteinatlas_im</span>);</div><div class='output co'>#&gt; <span class='error'>Error in rowGroupMeans(x[, controls_v, drop = FALSE], na.rm = na.rm, groups = centerGroups[controls_v],     useMedian = useMedian, rmOutliers = rmOutliers, madFactor = madFactor,     rowStatsFunc = rowStatsFunc, verbose = verbose, ...): could not find function "rowGroupMeans"</span></div><div class='input'>
+   <span class='st'>"TFs"</span><span class='op'>)</span>;
+<span class='va'>proteinatlas_im</span> <span class='op'>&lt;-</span> <span class='fu'><a href='list2im_opt.html'>list2im_opt</a></span><span class='op'>(</span><span class='va'>proteinatlas_genesets_fdb11</span><span class='op'>[</span><span class='va'>use_im</span><span class='op'>]</span><span class='op'>)</span>;
+<span class='va'>test_genes</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"DKK1"</span>,<span class='st'>"DKK4"</span>,<span class='st'>"CXCL12"</span>,<span class='st'>"IL6R"</span>,<span class='st'>"MET"</span>,
+   <span class='st'>"HK2"</span>,<span class='st'>"FTL"</span>,<span class='st'>"FTH1"</span>,<span class='st'>"STAT1"</span>,<span class='st'>"STAT3"</span>,<span class='st'>"CDKN1B"</span><span class='op'>)</span>;
+<span class='fu'>proteinatlas_heatmap</span><span class='op'>(</span>genes<span class='op'>=</span><span class='va'>test_genes</span>,
+   type<span class='op'>=</span><span class='st'>"Blood"</span>,
+   centered<span class='op'>=</span><span class='cn'>TRUE</span>,
+   gene_im<span class='op'>=</span><span class='va'>proteinatlas_im</span><span class='op'>)</span>;
+</div><div class='img'><img src='proteinatlas_heatmap-2.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -340,7 +377,7 @@ can be provided with argument <code>controlSamples</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

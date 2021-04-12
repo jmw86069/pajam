@@ -17,6 +17,7 @@ proteinatlas_heatmap(
   cluster_columns = FALSE,
   cluster_rows = FALSE,
   column_split = NULL,
+  row_split = NULL,
   centered = FALSE,
   row_filter = 0,
   column_filter = 0,
@@ -24,11 +25,13 @@ proteinatlas_heatmap(
   gene_names = FALSE,
   gene_im = NULL,
   gene_im_colors = NULL,
+  left_annotation = NULL,
   fill_missing = TRUE,
   border = TRUE,
   useCenterGroups = TRUE,
   trim_columns = FALSE,
   rowStatsFunc = matrixStats::rowMins,
+  return_type = c("heatmap", "list"),
   verbose = FALSE,
   ...
 )
@@ -97,6 +100,12 @@ to define colors for \code{gene_im}, using methods sufficient for
 \code{NULL} a default function is used which is intended only for
 \code{c(0, 1)}.}
 
+\item{left_annotation}{optional heatmap annotation as produced
+by \code{ComplexHeatmap::HeatmapAnnotation()}, as an alternative to
+supplying \code{gene_im}. Note than when \code{gene_im} is supplied,
+it will replace \code{left_annotation}. This option is available
+only to allow supplying a customized side annotation.}
+
 \item{fill_missing}{\code{logical} indicating whether the input \code{genes} should
 bo used as-is with no pattern matching, and by substituting \code{0}
 for any missing entries. This argument is useful when trying to
@@ -121,13 +130,29 @@ when \code{centered=TRUE}, passed to \code{jamma::centerGeneData_new()}.
 The default is to use the \code{matrixStats::rowMins()} which returns
 the minimum expression value per row.}
 
+\item{return_type}{\code{character} string indicating the type of return
+object: \code{"heatmap"} returns the \code{Heatmap} object sufficient to
+be plotted using \code{ComplexHeatmap::draw()}; \code{"list"} returns \code{list}
+of relevant data components used to produce the heatmap, sufficient
+for reviewing more details. The \code{list} output also includes data
+actually used in the heatmap, after the expression centering,
+expression filtering, and sample subsetting, as relevant.
+if relevant.}
+
 \item{verbose}{\code{logical} indicating whether to print verbose output.}
 
 \item{...}{additional arguments are passed to \code{ComplexHeatmap::Heatmap()}
 for other customizations.}
 }
 \value{
-\code{Heatmap} produced by \code{ComplexHeatmap::Heatmap()}.
+\code{Heatmap} produced by \code{ComplexHeatmap::Heatmap()} by default,
+when \code{return_type="heatmap"}; when \code{return_type="list"} it
+returns a \code{list} with components used in the heatmap, perhaps
+most important is the actual expression data matrix after
+expression centering, expression filtering, and sample
+subsetting operations, as relevant. The \code{list} also includes
+the Heatmap under element \code{"hm"}, so it can be plotted
+using \code{ComplexHeatmap::draw()}.
 }
 \description{
 proteinatlas.org expression heatmap
@@ -170,7 +195,6 @@ use_im <- c("secreted_proteins",
 proteinatlas_im <- list2im_opt(proteinatlas_genesets_fdb11[use_im]);
 test_genes <- c("DKK1","DKK4","CXCL12","IL6R","MET",
    "HK2","FTL","FTH1","STAT1","STAT3","CDKN1B");
-rowGroupMeans <- jamba::rowGroupMeans;
 proteinatlas_heatmap(genes=test_genes,
    type="Blood",
    centered=TRUE,

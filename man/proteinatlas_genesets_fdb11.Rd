@@ -45,7 +45,6 @@ proteinatlas_im <- list2im_opt(proteinatlas_genesets_fdb11[use_im]);
 test_genes <- c("DKK1","DKK4","CXCL12","IL6R","MET",
    "HK2","FTL","FTH1","STAT1","STAT3","CDKN1B");
 
-rowGroupMeans <- jamba::rowGroupMeans;
 proteinatlas_heatmap(genes=test_genes,
    type="Blood",
    centered=TRUE,

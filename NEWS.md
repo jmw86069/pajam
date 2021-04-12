@@ -1,4 +1,24 @@
-# pajam version 0.0.3.900
+# pajam 0.0.4.900
+
+## changes to existing functions, and one bug fix
+
+* `proteinatlas_heatmap()` new arguments:
+
+   * `row_split` to fix error when supplying both `row_split`
+   and `row_filter`. Previously, rows could not be filtered
+   and split, because the `row_split` was passed via `...`
+   and needs to be subsetted prior to passing along to `Heatmap()`.
+   Now `row_split` is a formal argument and can be subsetted
+   consistent with the expression matrix used in the heatmap.
+   * `return_type` with values `"heatmap"` to return the Heatmap;
+   `"list"` to return a `list` that contains the data matrix used
+   in the heatmap, the Heatmap itself, and other useful objects.
+   * `left_annotation` is an optional argument used when `gene_im`
+   is not supplied, and you want to supply a specific left annotation
+   to display in its place.
+
+
+# pajam 0.0.3.900
 
 ## changes to existing functions
 
@@ -8,7 +28,7 @@ to have values `c(-1, 0, 1)` instead of just `c(0, 1)`
 previously. Also the `gene_im` color legend is displayed
 by default.
 
-# pajam version 0.0.2.900
+# pajam 0.0.2.900
 
 ## changes to existing functions
 
@@ -19,7 +39,7 @@ app.
 value of `selected_genes` if defined in the global environment
 `.GlobalEnv`, otherwise it will use the default set of genes.
 
-# pajam version 0.0.1.900
+# pajam 0.0.1.900
 
 ## new functions
 
@@ -27,7 +47,7 @@ value of `selected_genes` if defined in the global environment
 data. The app uses really nice interactive features from the
 ComplexHeatmap package.
 
-# pajam version 0.0.0.900
+# pajam 0.0.0.900
 
 ## initial release
 
