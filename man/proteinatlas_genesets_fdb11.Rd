@@ -4,8 +4,10 @@
 \name{proteinatlas_genesets_fdb11}
 \alias{proteinatlas_genesets_fdb11}
 \title{Protein Atlas useful genesets for visualization}
-\format{\code{list} of \verb{character vector}, whose values match
-\code{rownames(proteinatlas_expr_fdb11)}.}
+\format{
+\code{list} of \verb{character vector}, whose values match
+\code{rownames(proteinatlas_expr_fdb11)}.
+}
 \usage{
 proteinatlas_genesets_fdb11
 }

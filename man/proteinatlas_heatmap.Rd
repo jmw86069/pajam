@@ -126,7 +126,7 @@ confusing.}
 to remove the sample type suffix.}
 
 \item{rowStatsFunc}{\code{function} used to define the per-row value used
-when \code{centered=TRUE}, passed to \code{jamma::centerGeneData_new()}.
+when \code{centered=TRUE}, passed to \code{jamma::centerGeneData()}.
 The default is to use the \code{matrixStats::rowMins()} which returns
 the minimum expression value per row.}
 

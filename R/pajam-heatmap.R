@@ -104,7 +104,7 @@
 #' @param trim_columns `logical` indicating whether to trim the colnames
 #'    to remove the sample type suffix.
 #' @param rowStatsFunc `function` used to define the per-row value used
-#'    when `centered=TRUE`, passed to `jamma::centerGeneData_new()`.
+#'    when `centered=TRUE`, passed to `jamma::centerGeneData()`.
 #'    The default is to use the `matrixStats::rowMins()` which returns
 #'    the minimum expression value per row.
 #' @param return_type `character` string indicating the type of return
@@ -247,7 +247,7 @@ proteinatlas_heatmap <- function
       } else {
          centerGroups <- NULL;
       }
-      expr_m <- jamma::centerGeneData_new(expr_m,
+      expr_m <- jamma::centerGeneData(expr_m,
          rowStatsFunc=rowStatsFunc,
          centerGroups=centerGroups,
          mean=FALSE,

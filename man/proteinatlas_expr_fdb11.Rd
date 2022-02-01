@@ -4,13 +4,15 @@
 \name{proteinatlas_expr_fdb11}
 \alias{proteinatlas_expr_fdb11}
 \title{Protein Atlas expression data version fdb11}
-\format{\code{matrix} of numeric values, following their normalization
+\format{
+\code{matrix} of numeric values, following their normalization
 methodology. The rownames indicate official Entrez gene symbols,
 and the colnames indicate biological samples. The colnames
 include a suffix indicating the type of sample, and include:
 \code{"Tissue"}, \code{"Blood"}, \code{"Brain"}, and \code{"Cell"}. Note that
 \code{"Blood"} and \code{"Brain"} samples may also be included in the
-overall \code{"Tissue"} samples.}
+overall \code{"Tissue"} samples.
+}
 \usage{
 proteinatlas_expr_fdb11
 }

@@ -1,6 +1,6 @@
 Package: pajam
 Title: Protein Atlas data and visualization
-Version: 0.0.4.900
+Version: 0.0.5.900
 Authors@R: person(given="James M.", family="Ward",
    email="jmw86069@gmail.com", role=c("aut", "cre"))
 Description: Protein Atlas data and visualization methods
@@ -8,7 +8,7 @@ Description: Protein Atlas data and visualization methods
 biocViews:
    Depends: R (>= 3.6.0)
 Imports: jamba,
-   jamma,
+   jamma (>= 0.0.19.900),
    colorjam,
    ComplexHeatmap,
    matrixStats
@@ -25,4 +25,4 @@ URL: http://github.com/jmw86069/pajam
 BugReports: http://github.com/jmw86069/pajam/issues
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2

@@ -1,3 +1,11 @@
+# pajam 0.0.5.900
+
+## changes to existing functions, and one bug fix
+
+* `proteinatlas_heatmap()` was updated to call the correct
+function from the `jamma` package. The dependency on jamma
+was updated to version `0.0.19.900`.
+
 # pajam 0.0.4.900
 
 ## changes to existing functions, and one bug fix
